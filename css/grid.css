@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+/*
+*
+* Each row has a width of 1000px w/ 20 padding right and left
+* 960px is therefore the max width
+* each column is 60px wide (total of 720px)
+* Each gutter is 20px wide, so each column has padding of 10/960 = 1.04166666%
+*
+*/
+
+.row {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row::before, .row::after {
+  display: table;
+  content: "";
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-4 {
+  float: left;
+  padding-right: 1.04166666%; /* equal to about 10px if container occupies 960px */
+  padding-left: 1.04166666%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 640px) {
+  .col-4 {
+    width: 33.33%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
